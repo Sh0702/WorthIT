@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Liabilities Page</title>
+	<!--Bootsrap 4 CDN-->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+    <!--Fontawesome CDN-->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+	<!--Custom styles-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'liabilities.css') }}">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+    <div id="mySidepanel" class="sidepanel">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <a href="#">Home</a>
+        <a href="#">Assets</a>
+        <a href="#">Income/Expenditure</a>
+        <a href="#">Liabilities</a>
+        <button class="logout" formaction="login.html">Log Out
+    </div>
+
+<div id="main">
+    <button class="openbtn" onclick="openNav()">&#9776; Dashboard</button>
+    <div class="container-fluid">
+        <form action="{{url_for('add')}}" method="POST">
+            <div class="d-flex justify-content-center">
+                <div class="panel panel-default">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div id="inputFormRow">
+                                <ul class="list-inline">
+                                    <li class="list-inline-item"></li>Liabilities Name:</li>
+                                    <li class="list-inline-item" style="width: 100px;"></li>Liabilities Cost:</li>
+                                </ul>
+                                <!--label for="Asset Name" class="mr-sm-2">Asset Name:</label-->
+                                <!--label for="Asset Cost" class="mr-sm-2">Asset Value:</label-->
+                                    <div class="input-group mb-3">
+                                        <input type="text" name="Liabilities[]" class="form-control m-input" placeholder="Enter Name">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <input type="text" name="Cost_liabilities[]" class="form-control m-input" placeholder="Enter Cost">
+                                    </div>
+                            </div>
+                            <button id="addRow" type="submit" class="btn btn-info" name="add">Add</button>
+                            <p style="color:black">{{msg}}</p>
+                        </div>
+                    </div>         
+                </div>
+            </div>
+        </form>
+        <table class="table table-striped table-dark">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name of Liabilities</th>
+                <th scope="col">Cost</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>
+
+
+<!-- jQuery CDN - Slim version (=without AJAX) -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<!-- Popper.JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+<!-- Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+<!-- jQuery Custom Scroller CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
+
+<script type="text/javascript">
+
+    //Navigation
+    //open
+    function openNav() 
+    {
+        document.getElementById("mySidepanel").style.width = "250px";
+    }
+    //close
+    function closeNav() 
+    {
+        document.getElementById("mySidepanel").style.width = "0";
+    }
+    
+</script>
+
+</body>
+</html>
